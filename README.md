@@ -14,7 +14,7 @@ Code is coming soon.
 ## Citation
 To cite our paper, please use
 ```
-@article{pizzati2021comogan,
+@article{pizzati2021manifest,
   title={{ManiFest: Manifold Deformation for Few-shot Image Translation}},
   author={Pizzati, Fabio and Lalonde, Jean-François and de Charette, Raoul},
   journal={arXiv preprint},
