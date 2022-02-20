@@ -28,7 +28,7 @@ Please create an environment using the `requirements.yml` file provided.
 Download the pretrained models and the pretrained VGG used for the style alignment loss by following the link:
 
 ```
-https://ln5.sync.com/dl/6de4bbb00/4hk8v6f7-m3j575f9-ydznk4rx-ndzaheve
+https://www.rocq.inria.fr/rits_files/computer-vision/manifest/manifest_checkpoints.tar.gz
 ```
 
 Move the VGG network weights in the `res` folder and the checkpoints in the `checkpoints` one.
