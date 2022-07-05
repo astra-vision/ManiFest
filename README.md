@@ -3,7 +3,7 @@
 [ManiFest: Manifold Deformation for Few-shot Image Translation](https://arxiv.org/abs/2111.13681)  
 Fabio Pizzati, Jean-François Lalonde, Raoul de Charette  
 
-ArXiv 2021
+ECCV 2022
 
 ## Preview
 
@@ -12,11 +12,11 @@ ArXiv 2021
 ## Citation
 To cite our paper, please use
 ```
-@article{pizzati2021manifest,
+@inproceedings{pizzati2021manifest,
   title={{ManiFest: Manifold Deformation for Few-shot Image Translation}},
   author={Pizzati, Fabio and Lalonde, Jean-François and de Charette, Raoul},
-  journal={arXiv preprint},
-  year={2021}
+  booktitle={ECCV},
+  year={2022}
 }
 ```
 
