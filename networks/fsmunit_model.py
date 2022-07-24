@@ -95,7 +95,8 @@ class FSMunitModel(BaseModel):
         if opt.lambda_vgg > 0:
             self.instance_norm = torch.nn.InstanceNorm2d(512)
             self.vgg = networks.Vgg16()
-            self.vgg.load_state_dict(torch.load('res/vgg_imagenet.pth'))
+            # TODO: pass pretrained weights path as argument
+            self.vgg.load_state_dict(torch.load('checkpoints/ex-i2iwand/res/vgg_imagenet.pth'))
             self.vgg.to(self.device)
             self.vgg.eval()
             for param in self.vgg.parameters():
