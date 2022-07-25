@@ -27,9 +27,10 @@ def main(ap):
         # Transfer the model to the GPU
         model.to('cuda')
         val_ds = INPUT_DIR
+        image_list = os.listdir(val_ds)
         os.makedirs('{}/general'.format(OUTPUT_DIR), exist_ok=True)
-        for index, im_path in enumerate(os.listdir(val_ds)):
-            print('{}/{}:{}'.format(index, len(val_ds), im_path))
+        for index, im_path in enumerate(image_list):
+            print('{}/{}:{}'.format(index + 1, len(image_list), im_path))
             im = Image.open(os.path.join(val_ds, im_path)).resize((480, 256), Image.BILINEAR)
             style_array = torch.randn(1, 8, 1, 1).cuda()
             im = ToTensor()(im) * 2 - 1
