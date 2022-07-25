@@ -1,1 +1,2 @@
 checkpoints/**/*.pth
+__pycache__
