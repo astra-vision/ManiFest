@@ -27,17 +27,21 @@ def main(ap):
         # Transfer the model to the GPU
         model.to('cuda')
         val_ds = INPUT_DIR
+        image_list = os.listdir(val_ds)
         os.makedirs('{}/general'.format(OUTPUT_DIR), exist_ok=True)
-        for index, im_path in enumerate(os.listdir(val_ds)):
-            print('{}/{}:{}'.format(index, len(val_ds), im_path))
-            im = Image.open(os.path.join(val_ds, im_path)).resize((480, 256), Image.BILINEAR)
+        for index, im_path in enumerate(image_list):
+            print('{}/{}:{}'.format(index + 1, len(image_list), im_path))
+            original_image = Image.open(os.path.join(val_ds, im_path))
+            original_size = original_image.size
+            im = original_image.resize((480, 256), Image.BILINEAR)
             style_array = torch.randn(1, 8, 1, 1).cuda()
             im = ToTensor()(im) * 2 - 1
             im = im.cuda().unsqueeze(0)
             result = model.forward(im, style_array, type='global', ref_image=None)
             result = torch.clamp(result, -1, 1)
-            img_global = ToPILImage()((result[0] + 1) / 2)
+            img_global = ToPILImage()((result[0] + 1) / 2).resize(original_size, Image.BILINEAR)
             img_global.save('{}/general/{}'.format(OUTPUT_DIR, im_path))
+
 
 if __name__ == '__main__':
         ap = AP()
