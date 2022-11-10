@@ -45,7 +45,7 @@ python inference_general.py --input_dir <input_directory> --output_dir <output_d
 To perform `exemplar` inference, please use
 
 ```
-python inference_exemplar.py --input_dir <input_directory> --output_dir <output_directory> --checkpoint <checkpoint_path> --exemplar_image <path_to_exemplar_image>
+python inference_exemplar.py --input_dir <input_directory> --output_dir <output_directory> --checkpoint <checkpoint_path> --reference_image <path_to_exemplar_image>
 ```
 
 ## Training
