@@ -13,7 +13,7 @@ def main(ap):
         CHECKPOINT = ap.checkpoint
         OUTPUT_DIR = ap.output_dir
         INPUT_DIR = ap.input_dir
-        REFERENCE_IMAGE = ap.reference_image
+        EXEMPLAR_IMAGE = ap.exemplar_image
         # Load parameters
         #with open(os.path.join(root_dir, 'hparams.yaml')) as cfg_file:
         ckpt_path = torch.load(CHECKPOINT, map_location='cpu')
@@ -28,7 +28,7 @@ def main(ap):
         model.to('cuda')
         val_ds = INPUT_DIR
 
-        im_ref = Image.open(REFERENCE_IMAGE).resize((480, 256), Image.BILINEAR)
+        im_ref = Image.open(EXEMPLAR_IMAGE).resize((480, 256), Image.BILINEAR)
         im_ref = ToTensor()(im_ref) * 2 - 1
         im_ref = im_ref.cuda().unsqueeze(0)
 
@@ -49,7 +49,7 @@ if __name__ == '__main__':
         ap.add_argument('--checkpoint', required=True, type=str, help='checkpoint to load')
         ap.add_argument('--output_dir', required=True, type=str, help='where to save images')
         ap.add_argument('--input_dir', default='datasets/acdc_day2night/valRC', type=str, help='directory with images to translate')
-        ap.add_argument('--reference_image', required=True, type=str, help='reference_image')
+        ap.add_argument('--exemplar_image', required=True, type=str, help='exemplar_image')
         ap = ap.parse_args()
         main(ap)
 
